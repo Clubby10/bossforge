@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.lucasdunn'
+version = '1.2.1'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+}
+
+dependencies {
+    compileOnly('org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT') {
+        // This removed historic artifact is unused by BossCrafting.
+        exclude group: 'net.md-5', module: 'bungeecord-chat'
+    }
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.yaml:snakeyaml:1.33'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+jar {
+    archiveBaseName = 'BossCrafting'
+}

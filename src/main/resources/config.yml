@@ -1,0 +1,197 @@
+# BossCrafting 1.2.1 - Minecraft 1.8.9
+# Color codes use '&'. Reload with /eb crafting reload.
+
+settings:
+  # Valid sizes: 9, 18, 27, 36, 45 or 54.
+  gui-title: '&5&l☠ &0ALTAR OF THE VOID &5&l☠'
+  gui-size: 27
+  close-after-craft: false
+  # Enable this only if players should open the forge without an NPC.
+  craft-command-enabled: false
+
+  # Hard limit: 2304.
+  max-give-amount: 64
+
+  # Command used to deliver the EliteBosses egg.
+  output-command: 'eb give {player} {boss}'
+  require-elitebosses: true
+  elitebosses-plugin-name: 'EliteBosses'
+
+# Permission nodes may be changed to match your permissions setup.
+permissions:
+  craft: 'bosscrafting.craft'
+  admin: 'bosscrafting.admin'
+
+npc:
+  citizens-plugin-name: 'Citizens'
+  default-name: '&5&l»BossMage«'
+  skin-name: 'Wizard'
+  skin-url: ''
+  # Internal console-only command attached to the NPC's right-click action.
+  # Players cannot run this command themselves.
+  open-command: 'bosscrafting open <p>'
+
+# Placeholders: {player}, {amount}, {item}, {id}, {missing}, {boss}
+messages:
+  prefix: '&8[&5&lBOSS &d&lFORGE&8] &5» &7'
+  no-permission: '&cThe altar rejects your unworthy soul.'
+  players-only: '&cOnly living players may approach the altar.'
+  craft-command-disabled: '&cThe Boss Forge can only be accessed through its keeper.'
+  citizens-missing: '&cCitizens is not installed or enabled.'
+  npc-create-failed: '&cThe Citizens NPC could not be fully configured.'
+  npc-created: '&dCreated &f{name}&d. Right-click it to open the Boss Forge.'
+  unknown-material: '&cUnknown dark material: &f{id}&c.'
+  invalid-amount: '&cThe offering amount must be between &d1 &cand &d{max}&c.'
+  inventory-full: '&dYour inventory overflowed. &7Remaining relics fell at your feet.'
+  registry-save-failed: '&cThe secure item registry could not be saved. Nothing was issued.'
+  inventory-space: '&cYou need at least one empty inventory slot for the boss egg.'
+  material-cannot-place: '&cDark crafting materials cannot be placed as blocks.'
+  given: '&7You summoned &d{amount}x {item} &7for &f{player}&7.'
+  received: '&7The void granted you &d{amount}x {item}&7.'
+  missing: '&cThe ritual demands: &f{missing}'
+  crafted: '&d&lRITUAL COMPLETE! &7You forged the {boss} &7summoning egg.'
+  output-failed: '&cThe ritual collapsed. Your offerings were safely restored.'
+  dependency-missing: '&cEliteBosses is absent. The altar remains dormant.'
+  reloaded: '&dThe Boss Forge configuration has been awakened.'
+  reload-failed: '&cReload failed. The previous configuration is still active.'
+
+# Custom crafting materials.
+materials:
+  abyssal_scale:
+    material: PRISMARINE_SHARD
+    data: 0
+    name: '&5&lAbyssal Scale'
+    lore:
+      - '&8A scale torn from an ancient horror'
+      - '&8that sleeps beneath the blackened sea.'
+      - ''
+      - '&d&lFORGING MATERIAL'
+    glow: true
+
+  celestial_fragment:
+    material: NETHER_STAR
+    data: 0
+    name: '&d&lCelestial Fragment'
+    lore:
+      - '&8A dying star crushed into a shard,'
+      - '&8still whispering of forgotten worlds.'
+      - ''
+      - '&d&lFORGING MATERIAL'
+    glow: true
+
+  infernal_core:
+    material: MAGMA_CREAM
+    data: 0
+    name: '&4&lInfernal Core'
+    lore:
+      - '&8A pulsing heart stolen from the flames'
+      - '&8of a prison far below the mortal realm.'
+      - ''
+      - '&5&lCURSED MATERIAL'
+    glow: true
+
+  kraken_tentacle:
+    material: INK_SACK
+    data: 0
+    name: '&5&lKraken Tentacle'
+    lore:
+      - '&8Cold, ancient flesh that continues'
+      - '&8to writhe when no one is watching.'
+      - ''
+      - '&d&lFORGING MATERIAL'
+    glow: true
+
+  void_shard:
+    material: OBSIDIAN
+    data: 0
+    name: '&5&lVoid Shard'
+    lore:
+      - '&8A fracture in reality given form.'
+      - '&8Stare too long and it stares back.'
+      - ''
+      - '&5&lCURSED MATERIAL'
+    glow: true
+
+  binding_rune:
+    material: PAPER
+    data: 0
+    name: '&d&lRune of Binding'
+    lore:
+      - '&8A forbidden seal used to imprison'
+      - '&8monstrous souls inside summoning eggs.'
+      - ''
+      - '&d&lRITUAL COMPONENT'
+    glow: false
+
+# Recipe keys must match the EliteBosses boss IDs. Slots are zero-based.
+recipes:
+  abyssal_leviathan:
+    display-slot: 10
+    display-material: MONSTER_EGG
+    display-data: 94
+    display-name: '&5&lAbyssal Leviathan'
+    display-lore:
+      - '&8Something colossal stirs beneath'
+      - '&8the lightless waters...'
+      - ''
+      - '&dClick to perform the ritual.'
+    ingredients:
+      abyssal_scale: 16
+      binding_rune: 4
+
+  celestial-devourer:
+    display-slot: 11
+    display-material: MONSTER_EGG
+    display-data: 58
+    display-name: '&d&lCelestial Devourer'
+    display-lore:
+      - '&8The beast between stars hungers'
+      - '&8for another world to consume...'
+      - ''
+      - '&dClick to perform the ritual.'
+    ingredients:
+      celestial_fragment: 12
+      binding_rune: 6
+
+  inferno-warden:
+    display-slot: 12
+    display-material: MONSTER_EGG
+    display-data: 61
+    display-name: '&4&lInferno Warden'
+    display-lore:
+      - '&8The eternal jailer waits behind'
+      - '&8the gates of a burning abyss...'
+      - ''
+      - '&dClick to perform the ritual.'
+    ingredients:
+      infernal_core: 16
+      binding_rune: 4
+
+  kraken:
+    display-slot: 14
+    display-material: MONSTER_EGG
+    display-data: 94
+    display-name: '&5&lThe Kraken'
+    display-lore:
+      - '&8Its many eyes have watched ships sink'
+      - '&8since before history had a name...'
+      - ''
+      - '&dClick to perform the ritual.'
+    ingredients:
+      kraken_tentacle: 20
+      binding_rune: 5
+
+  void-reaver:
+    display-slot: 15
+    display-material: MONSTER_EGG
+    display-data: 51
+    display-name: '&5&lVoid Reaver'
+    display-lore:
+      - '&8A hollow knight from beyond reality'
+      - '&8answers only to blood and ruin...'
+      - ''
+      - '&dClick to perform the ritual.'
+    ingredients:
+      void_shard: 16
+      celestial_fragment: 4
+      binding_rune: 8

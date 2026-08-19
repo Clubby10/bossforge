@@ -1,0 +1,16 @@
+name: BossCrafting
+version: 1.2.1
+main: com.lucasdunn.BossCraftingPlugin
+author: BossCrafting
+description: Configurable crafting addon for EliteBosses
+softdepend: [EliteBosses, Citizens]
+commands:
+  bosscrafting:
+    aliases: [bcraft]
+    description: BossCrafting fallback/admin command
+    usage: /bosscrafting <craft|open|createnpc|materials give|reload>
+permissions:
+  bosscrafting.craft:
+    default: true
+  bosscrafting.admin:
+    default: op
