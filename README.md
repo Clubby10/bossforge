@@ -90,4 +90,4 @@ The plugin will be created at `build/libs/BossCrafting-1.2.1.jar`.
 
 ## Video
 
-[Watch the BossCrafting demonstration video](pictures/bosscrafting.mov)
+https://github.com/user-attachments/assets/420d0004-8afb-4759-8af9-34348dad14ea
